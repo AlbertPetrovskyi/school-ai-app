@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+	<head>
+		<meta charset="UTF-8">
+		<title>HejChat - Tvůj roztomilý AI asistent &lt;3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="HejChat je hra poháněná AI, která revolucionalizuje hraní díky špičkové umělé inteligenci.">
+		<meta name="keywords" content="AI asistent, HejChat, chatbot, Hejčín, umělá inteligence, OpenRouter API, školní pomoc, jazykové modely, vzdělávací nástroj, studijní asistent, domácí úkoly, Llama 3.3, Gemini 2.5 Pro, Mistral, DeepSeek, české AI, streamované odpovědi, konverzační AI, školní projekty, studentský pomocník">
+		<meta name="author" content="Albert Petrovskyi">
+		<meta name="copyright" content="Copyright © 2025 Albert Petrovskyi. All rights reserved.">
+		<meta name="address" content="Tomkova 45/314, 779 00 Olomouc 9, Czech Republic">
+		<meta name="language" content="Czech">
+		<meta name="robots" content="index, follow">
+		<meta name="apple-mobile-web-app-title" content="HejChat">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" href="./assets/rasters/favicon.ico" type="image/x-icon">
+		<link rel="icon" type="image/png" sizes="32x32" href="./assets/rasters/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./assets/rasters/favicon-16x16.png">
+		<link rel="apple-touch-icon" href="./assets/rasters/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="./assets/rasters/android-chrome-192x192.png">
+		<link rel="icon" type="image/png" sizes="512x512" href="./assets/rasters/android-chrome-512x512.png">
+		<link rel="manifest" href="./site.webmanifest">
+		<link rel="canonical" href="https://gytool.github.io/">
+		<link rel="stylesheet" href="./css/index.css">
+		<!-- <script src="https://telegram.org/js/telegram-web-app.js"></script> -->
+	</head>
+	<body>
+		<div id="root">
+			<div class="wrapper">
+				<div class="header">
+					<img loading="eager" src="./assets/vectors/burger.svg" alt="Settings" class="header-history"> 
+					<div class="header-model">
+						<span class="header-text">Model</span>
+						<img loading="eager" src="./assets/vectors/arrow.svg" alt="Arrow" class="header-text-icon"> 
+					</div>
+					<div class="header-api">
+						<span class="header-text">API</span>
+						<img loading="eager" src="./assets/vectors/arrow.svg" alt="Arrow" class="header-text-icon"> 
+					</div>
+					<img loading="eager" src="./assets/vectors/new-chat.svg" alt="New Chat" class='header-new'> 
+				</div>
+				<div class="space" id="message-space"></div>
+				<form class='panel' id="chat-form">
+					<button type="button" class='panel-block' aria-label="Odeslat zprávu">
+						<img loading="eager" src="./assets/vectors/plus.svg" alt="More" class='panel-more'> 
+					</button>
+					<input class='panel-input' id="chat-input" type='text' placeholder='Zeptejte se na cokoli' autocomplete="off"/>
+					<button type="submit" class='panel-block' aria-label="Odeslat zprávu">
+						<img loading="eager" src="./assets/vectors/voice.svg" alt="Voice" class='panel-send'> 
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<template id="responseIconsTemplate">
+			<div class="space-response-icons">
+				<img loading="eager" src="./assets/vectors/copy.svg" alt="Copy" class="space-copy"> 
+				<img loading="eager" src="./assets/vectors/like.svg" alt="Like" class="space-like"> 
+				<img loading="eager" src="./assets/vectors/rerun.svg" alt="Rerun" class="space-rerun"> 
+				<img loading="eager" src="./assets/vectors/share.svg" alt="Share" class="space-share"> 
+			</div>
+		</template>
+		<template id="copyIconTemplate">
+			<img loading="eager" src="./assets/vectors/copy.svg" alt="Copy" class="space-copy"> 
+		</template>
+
+		<template id="plusMenuTemplate">
+			<div class="plus-menu">
+				<div class="plus-menu-item">
+					<img loading="eager" src="./assets/vectors/photo.svg" alt="Fotografie" class="plus-menu-icon">
+					<span>Fotografie</span>
+				</div>
+				<div class="plus-menu-item">
+					<img loading="eager" src="./assets/vectors/camera.svg" alt="Kamera" class="plus-menu-icon">
+					<span>Kamera</span>
+				</div>
+				<div class="plus-menu-item">
+					<img loading="eager" src="./assets/vectors/file.svg" alt="Soubory" class="plus-menu-icon">
+					<span>Soubory</span>
+				</div>
+			</div>
+		</template>
+
+		<template id="speechModalTemplate">
+			<div class="speech-overlay">
+				<div class="speech-modal">
+					<div class="speech-header">
+						<h3>Poslouchám...</h3>
+						<button class="speech-close">✕</button>
+					</div>
+					<div class="speech-content">
+						<div class="speech-visualizer">
+							<div class="speech-circle">
+								<div class="speech-microphone">🎤</div>
+							</div>
+						</div>
+						<div class="speech-text">
+							<p id="speech-interim">Začněte mluvit...</p>
+							<p id="speech-final"></p>
+						</div>
+						<div class="speech-controls">
+							<button class="speech-stop">Zastavit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</template>
+		
+		<script type="module" src="./js/index.js"></script>
+	</body>
+</html>
+
+<!--
+
+git add .
+git commit -m "Minor changes"
+git push origin main
+
+git pull origin main
+
+-->
